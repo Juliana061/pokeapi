@@ -1,5 +1,4 @@
 async function pokemon(id){
-    
         var root = document.getElementById("root");
         const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + id);
         const data = await res.json();
@@ -22,4 +21,4 @@ async function pokemon(id){
 ${tipoPoke}
     </section>`
 }
-pokemon(10)
+
