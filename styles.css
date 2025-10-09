@@ -1,99 +1,244 @@
-body.normal {
-  background: linear-gradient(135deg, #a8a77a, #d8d8d8);
+/* === RESET GENERAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body.fighting {
-  background: linear-gradient(135deg, #c22e28, #f08030);
+/* === CUERPO === */
+body {
+  background-color: #000; /* Fondo negro */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 70px; /* espacio para el menú */
 }
 
-body.flying {
-  background: linear-gradient(135deg, #a98ff3, #c6e0f8);
+/* === NAVEGACIÓN SUPERIOR === */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #d62828; /* Rojo Pokédex */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(255, 203, 5, 0.3);
+  z-index: 100;
 }
 
-body.poison {
-  background: linear-gradient(135deg, #a33ea1, #d080c7);
-}
-
-body.ground {
-  background: linear-gradient(135deg, #e2bf65, #dec177);
-}
-
-body.rock {
-  background: linear-gradient(135deg, #b6a136, #d4c17d);
-}
-
-body.bug {
-  background: linear-gradient(135deg, #a6b91a, #cbe35d);
-}
-
-body.ghost {
-  background: linear-gradient(135deg, #735797, #a890f0);
-}
-
-body.steel {
-  background: linear-gradient(135deg, #b7b7ce, #d8d8e7);
-}
-
-body.fire {
-  background: linear-gradient(135deg, #ee8130, #f5a95b);
-}
-
-body.water {
-  background: linear-gradient(135deg, #6390f0, #7ec8f7);
-}
-
-body.grass {
-  background: linear-gradient(135deg, #7ac74c, #a7db8d);
-}
-
-body.electric {
-  background: linear-gradient(135deg, #f7d02c, #f7e479);
-}
-
-body.psychic {
-  background: linear-gradient(135deg, #f95587, #f28ab2);
-}
-
-body.ice {
-  background: linear-gradient(135deg, #96d9d6, #b3ecec);
-}
-
-body.dragon {
-  background: linear-gradient(135deg, #6f35fc, #9f72f0);
-}
-
-body.dark {
-  background: linear-gradient(135deg, #705746, #9b7f6d);
-}
-
-body.fairy {
-  background: linear-gradient(135deg, #d685ad, #f0b6d5);
-}
-
-body.stellar {
-  background: linear-gradient(135deg, #37e4da, #9befff);
-}
-
-body.unknown {
-  background: linear-gradient(135deg, #68a090, #a0d6c8);
-}
-
-h1{
-    color: rgb(11, 11, 11);
-}
-button {
-  background-color: #ffffff; /* color normal */
-  color: rgb(5, 5, 5);
+nav button {
+  background: #ffcb05; /* Amarillo Pokémon */
+  color: #000;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-button:hover {
-  background-color: #2980b9; /* cuando paso el mouse */
+nav button:hover {
+  background: #fff;
+  transform: scale(1.05);
 }
 
-button:active {
-  background-color: #e74c3c; /* cuando lo presiono */
+/* === BUSCADOR === */
+.c-buscador {
+  margin: 1.5rem 0;
+  padding: 10px 15px;
+  border: 2px solid #ffcb05;
+  border-radius: 10px;
+  width: 280px;
+  font-size: 16px;
+  background-color: #111;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.c-buscador:focus {
+  border-color: #ff0000;
+  outline: none;
+}
+
+.c-buscador::placeholder {
+  color: #aaa;
+}
+
+/* === FILTROS DE TIPOS === */
+.tipos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tipos-container button {
+  background: #111;
+  color: #fff;
+  border: 1px solid #ffcb05;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.tipos-container button:hover {
+  background: #ffcb05;
+  color: #000;
+}
+
+/* === CONTENEDOR DE LISTA === */
+.c-contenedor-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+/* === CARD DE POKÉMON === */
+.c-lista-pokemon {
+  background: #111;
+  border: 2px solid #ffcb05;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(255, 203, 5, 0.3);
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.c-lista-pokemon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.5);
+}
+
+.c-lista-pokemon img {
+  width: 90px;
+  height: 90px;
+}
+
+.c-lista-pokemon p {
+  margin-top: 5px;
+  text-transform: capitalize;
+  font-size: 0.95rem;
+  color: #ffcb05;
+}
+
+/* === DETALLES DE POKÉMON (SECCIÓN INDIVIDUAL) === */
+.c-pokemon {
+  background: #111;
+  border-radius: 20px;
+  border: 2px solid #ffcb05;
+  box-shadow: 0 4px 15px rgba(255, 203, 5, 0.2);
+  padding: 30px;
+  text-align: center;
+  max-width: 400px;
+  margin: 40px auto;
+  animation: aparecer 0.5s ease;
+  color: #fff;
+}
+
+.c-pokemon img {
+  width: 180px;
+  height: auto;
+}
+
+.c-pokemon p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.c-pokemon span {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background: #ffcb05;
+  border-radius: 12px;
+  color: #000;
+  font-weight: 600;
+}
+
+/* === BOTÓN DE FAVORITO === */
+.c-pokemon button {
+  margin-top: 10px;
+  background: #ffcb05;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000;
+  transition: 0.3s;
+}
+
+.c-pokemon button:hover {
+  background: #d62828;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* === CAPTURADOS === */
+.c-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.c-unpoke {
+  background: #111;
+  border: 1px solid #ffcb05;
+  border-radius: 10px;
+  width: 60px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #fff;
+}
+
+.c-mios-pokemon {
+  background: #ffcb05;
+  color: #000;
+  border: 1px solid #d4af37;
+}
+
+/* === ANIMACIONES === */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .c-buscador {
+    width: 200px;
+  }
+
+  .c-pokemon {
+    width: 90%;
+  }
 }

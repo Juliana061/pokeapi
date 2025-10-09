@@ -1,4 +1,3 @@
-
 let pokemones = [];
 let totalPokes = 3;
 
